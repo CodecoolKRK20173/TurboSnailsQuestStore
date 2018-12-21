@@ -19,18 +19,29 @@ public class CreepyGuyDAOimpl implements CreepyGuyDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         String query = "INSERT INTO class_ (name) VALUES (?)";
+        if(isClassNameLongEnough(className)){
+            try {
+                connection = connectionPool.getConnection();
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1, className);
+                preparedStatement.execute();
 
-        try {
-            connection = connectionPool.getConnection();
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, className);
-            preparedStatement.execute();
-
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+                preparedStatement.close();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            throw new IllegalArgumentException("Provide full name to class");
         }
+
+    }
+
+    private boolean isClassNameLongEnough(String className){
+        if (className.equals("")){
+            return false;
+        }
+        return true;
     }
 
     public int[] getAccessLevels() {
