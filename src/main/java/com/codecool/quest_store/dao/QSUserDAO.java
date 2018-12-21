@@ -93,9 +93,6 @@ public class QSUserDAO implements PersonDAO {
         } catch (SQLException e) {
             System.err.println("Can't add object to database!");
             e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-            System.out.println("Can't add null to database!");
         }
     }
 

@@ -41,9 +41,6 @@ public class ArtifactDAO implements ItemDAO {
             exc.printStackTrace();
             System.out.println("Connection problem with data base!");
 
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-            System.out.println("Connection problem with data base!");
         }
         return artifacts;
     }
@@ -184,9 +181,6 @@ public class ArtifactDAO implements ItemDAO {
             connection.close();
         } catch (SQLException exc) {
             exc.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-            System.out.println("Item can't be null!");
         }
     }
 

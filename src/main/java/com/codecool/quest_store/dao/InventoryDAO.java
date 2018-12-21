@@ -2,6 +2,7 @@ package com.codecool.quest_store.dao;
 
 import com.codecool.quest_store.model.Item;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 
 

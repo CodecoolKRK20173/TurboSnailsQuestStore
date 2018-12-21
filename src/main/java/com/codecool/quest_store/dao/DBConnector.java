@@ -5,7 +5,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public final class DBConnector {
+public class DBConnector {
 
     private static DBConnector instance = new DBConnector();
     private static BasicDataSource dataSource;
